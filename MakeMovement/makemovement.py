@@ -9,8 +9,8 @@ import logging
 import json
 import argparse
 
-
 logger = logging.getLogger(__name__)
+
 
 def processDirectory(path):
     #size = (520, 360)
@@ -79,8 +79,34 @@ class Gifecator(object):
 
 
 if __name__ == '__main__':
-    print os.getcwd()
-    print os.getcwd() + "\\Resources\\"
+    logging.basicConfig(filename='makemovement.log',level=logging.DEBUG)
+    logger.setLevel(logging.DEBUG)
+    logging.getLogger('develop').setLevel(logging.INFO)
+    print "log working"
+    logging.info("loggin.info dice oye")
+    logger.info("logger.info dice dime")
+    print "log logging"
+
+    logger.info("arrancando parser para los argumentos")
+    parser = argparse.ArgumentParser(description='resolve a video with images')
+    parser.add_argument('--ifolder',dest='ifolder', help='image folder')
+
+    args = parser.parse_args()
+    print args.ifolder
+    logger.info("args: " + args.ifolder)
+
+    if args.ifolder:
+        logger.info("entrar en:" + args.IF)
+
+        #gifecator = Gifecator("C:\\PragaBudapest")
+
+    else:
+        print args.ifolder
+
+        #logger.info("select: " + args.IF)
+    #logger.info("Done. elapsed:%ss" % (int(time.time() - start_time)))
+
+    #print os.getcwd()
+    #print os.getcwd() + "\\Resources\\"
     #processDirectory("C:\\PragaBudapest")
-    gifecator = Gifecator("C:\\PragaBudapest")
-    gifecator.takeGif()
+    #gifecator.takeGif()

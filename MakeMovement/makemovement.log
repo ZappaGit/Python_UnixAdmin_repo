@@ -1,0 +1,13 @@
+INFO:root:loggin.info dice oye
+INFO:__main__:logger.info dice dime
+INFO:__main__:arrancando parser para los argumentos
+DEBUG:__main__:imposible entrar en none imagefolder
+INFO:root:loggin.info dice oye
+INFO:__main__:logger.info dice dime
+INFO:__main__:arrancando parser para los argumentos
+INFO:__main__:entrar en:c:\imagefolder
+INFO:root:loggin.info dice oye
+INFO:__main__:logger.info dice dime
+INFO:__main__:arrancando parser para los argumentos
+INFO:__main__:entrar en:c:\imagefolder
+DEBUG:lib.utils:entrando en el folder

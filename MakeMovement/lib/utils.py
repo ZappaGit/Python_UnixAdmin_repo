@@ -1,8 +1,12 @@
 
 import logging
 
+logger = logging.getLogger(__name__)
 
-def processDirectory(path):
+def processDirectory(args):
+    print "processing"
+    logger.debug("entrando en el folder")
+    return "lol"
     #size = (520, 360)
     if not os.path.isdir(path + "\\temp"):
         os.mkdir(path + "\\temp")

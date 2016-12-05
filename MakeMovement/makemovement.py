@@ -5,7 +5,7 @@ import os
 from subprocess import Popen
 import vert_to_horizontal
 import logging
-
+import logging
 
 
 def processDirectory(path):
@@ -16,7 +16,7 @@ def processDirectory(path):
     for dirname, dirnames, filenames in os.walk(path):
         for file in filenames:
             if ".JPG" in file:
-                name =os.path.join(dirname, file)  
+                name =os.path.join(dirname, file)
                 print name
                 #im1 = Image.open(name)
                 #print(im1.size)
@@ -40,25 +40,25 @@ def processDirectory(path):
     print "directory %s processed" % os.path.dirname(path)
 
 class Gifecator(object):
-    
+
     def __init__(self, path):
         print "iniciando"
         self.path = path + '\\temp\\temp.txt'
         resPath = path.split("\\")
         self.resPath = os.getcwd() + "\\Resources\\"
-        
+
     def takeGif(self):
         print self.resPath
-        print self.path 
+        print self.path
         command = self.resPath + 'ffmpeg.exe -loglevel verbose -y -f concat -safe 0 -i "' + str(self.path) + '" -s 300x200 -c:v libx264 -vf "fps=25,format=yuv420p " "' + os.path.dirname(self.path) + '\\out.mp4"'
-        
+
         print command
-        
+
         if os.path.exists(os.path.dirname(self.path) + '\\out.mp4'):
             os.remove(os.path.dirname(self.path) + '\\out.mp4')
         if os.path.exists(os.path.dirname(self.path) + '\\out.gif'):
             os.remove(os.path.dirname(self.path) + '\\out.gif')
-        
+
         while not os.path.exists(os.path.dirname(self.path) + '\\out.mp4'):
             process = subprocess.Popen(command, shell=True,
                                        stdout=subprocess.PIPE)
@@ -72,8 +72,8 @@ class Gifecator(object):
         print "fin"
         #    pictureTime = pictureTime - datetime.timedelta(seconds=1)
         #print "cool"
-        
-        
+
+
 if __name__ == '__main__':
     print os.getcwd()
     print os.getcwd() + "\\Resources\\"

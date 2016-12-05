@@ -6,9 +6,11 @@ from subprocess import Popen
 import vert_to_horizontal
 import logging
 import logging
+import json
+import argparse
+
 
 logger = logging.getLogger(__name__)
-
 
 def processDirectory(path):
     #size = (520, 360)

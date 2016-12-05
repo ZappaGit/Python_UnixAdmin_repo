@@ -7,6 +7,8 @@ import vert_to_horizontal
 import logging
 import logging
 
+logger = logging.getLogger(__name__)
+
 
 def processDirectory(path):
     #size = (520, 360)

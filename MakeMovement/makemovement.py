@@ -1,4 +1,3 @@
-from PIL import Image
 import time
 import subprocess
 import os
@@ -7,6 +6,7 @@ import vert_to_horizontal
 import logging
 import json
 import argparse
+from lib.utils import processDirectory
 
 logger = logging.getLogger(__name__)
 
@@ -58,18 +58,22 @@ if __name__ == '__main__':
     logger.info("arrancando parser para los argumentos")
     parser = argparse.ArgumentParser(description='resolve a video with images')
     parser.add_argument('--ifolder',dest='ifolder', help='image folder')
+    parser.add_argument('--iext', dest='iext', help='image format extension file')
 
     args = parser.parse_args()
     print args.ifolder
-    logger.info("args: " + args.ifolder)
 
     if args.ifolder:
-        logger.info("entrar en:" + args.IF)
-        processDirectory("C:\\PragaBudapest")
+        logger.info("entrar en:" + args.ifolder)
+        if processDirectory(args):
+            logger.info("procesamiento OK")
+        else:
+            logger.info("procesamiento de directorio fallido")
+
         #gifecator = Gifecator("C:\\PragaBudapest")
 
     else:
-        print args.ifolder
+        logger.debug("imposible entrar en none imagefolder")
 
         #logger.info("select: " + args.IF)
     #logger.info("Done. elapsed:%ss" % (int(time.time() - start_time)))
